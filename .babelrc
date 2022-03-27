@@ -1,0 +1,7 @@
+// this tell Babel (Im going to be using to run the server an transpile the code)the presets
+//preset-env: convertinh newer js syntax into older js syntax
+//preset-react:transpilling the JSX into actual js code
+//node.js can parse JSX without this
+{
+    "presets": ["@babel/preset-env", "@babel/preset-react"]
+}

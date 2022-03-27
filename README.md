@@ -19,6 +19,10 @@ SSR pages will have a higher TTFB latency and a slower time-to-interactive. Your
 TTFB (time to first byte) is an external measurement of how long it takes from the initial request to the client receiving the first byte of response data.
 Render time and TTFB are critical because they determine how long it takes to display content to users, and for SEO crawlers like Googlebot or Bingbot slow TTFB can impact your ranking in search results.
 
+### commands
+run server:
+npx babel-node server.js
+
 ### Source
 [A Deep Dive into Server-Side Rendering (SSR) in JavaScript](https://towardsdev.com/server-side-rendering-srr-in-javascript-a1b7298f0d04)<br/>
 [Improving Render Time and TTFB with server-rendered Angular](https://medium.com/shopstyle-engineering/improving-render-time-and-ttfb-in-with-server-rendered-angular-5fe8b87f4cd7)
