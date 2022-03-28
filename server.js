@@ -3,14 +3,18 @@ import express from "express"
 import React from "react"
 //do the actual rendering of the app
 import {renderToString} from "react-dom/server"
+import {Home} from "./src/pages/Home"
 
 const app = express()
+
+// statically serve the files inside the build folder, but ignore the index file
+app.use(express.static('./build',{index:false}))
 
 // this route will respond to any request on any path (send our html)
 app.get("/*", (req,res) => {
 // renderToString is a function that we can pass JSX to, take that and render it into actual html sting
     const reactApp = renderToString(
-        <h1>Hello, beautiful</h1>
+        <Home />
     )
 // send the html string back to de client
     return res.send(`
