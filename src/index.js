@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
+//hydrates takes pre-rendered HTLM that Im get from the server and adds React to it
+ReactDOM.hydrate(
   <React.StrictMode>
-    <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -19,10 +19,21 @@ SSR pages will have a higher TTFB latency and a slower time-to-interactive. Your
 TTFB (time to first byte) is an external measurement of how long it takes from the initial request to the client receiving the first byte of response data.
 Render time and TTFB are critical because they determine how long it takes to display content to users, and for SEO crawlers like Googlebot or Bingbot slow TTFB can impact your ranking in search results.
 
+### Render()
+Returns a reference to the component after rendering a React element into the DOM in the provided container (or return null for stateless components)
+
+### Hydrate()
+Is the same as render() but is use to hydrate a container whose HTML contents were rendered by ReactDOMServer. React will attempt ti attach event listeners to the existing markup.<br/>
+React Hydratation is a technique used that is similiar to rendering, but instead of having an empty DOM to render all of our react components into, we have a DOM that has already been built, with all our components rendered as HTML.<br/>
+This improves SEO and decreases the initial load time.
+
+
 ### commands
 run server:
 npx babel-node server.js
 
 ### Source
+
 [A Deep Dive into Server-Side Rendering (SSR) in JavaScript](https://towardsdev.com/server-side-rendering-srr-in-javascript-a1b7298f0d04)<br/>
-[Improving Render Time and TTFB with server-rendered Angular](https://medium.com/shopstyle-engineering/improving-render-time-and-ttfb-in-with-server-rendered-angular-5fe8b87f4cd7)
+[Improving Render Time and TTFB with server-rendered Angular](https://medium.com/shopstyle-engineering/improving-render-time-and-ttfb-in-with-server-rendered-angular-5fe8b87f4cd7)<br/>
+[Understanding Hydratation in React applications (SSR)](https://blog.saeloun.com/2021/12/16/hydration.html)<br/>
