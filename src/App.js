@@ -1,13 +1,19 @@
 import React from "react"
+import styled from "styled-components"
 import {Routes, Route, Link} from "react-router-dom"
 import {About} from "./pages/About"
 import {Home} from "./pages/Home"
 import {Posts} from "./pages/Posts"
 
+const BigGreenHeading = styled.h1`
+  color: green;
+  font-size: 96px;
+`
+
 function App() {
   return (
     <>
-    <h1>Hello from the future</h1>
+    <BigGreenHeading>Hello from the future</BigGreenHeading>
     <ul>
         <li>
           <Link to="/"> Home</Link>

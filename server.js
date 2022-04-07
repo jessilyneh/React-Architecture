@@ -1,5 +1,6 @@
 //server.js actully run, listening requests and render and serve the app
 import express from "express"
+import { ServerStyleSheet } from "styled-components"
 import React from "react"
 //do the actual rendering of the app
 import {renderToString} from "react-dom/server"
@@ -16,12 +17,16 @@ app.use(express.static('./build',{index:false}))
 
 // this route will respond to any request on any path (send our html)
 app.get("/*", (req,res) => {
+    const sheet = new ServerStyleSheet();
+    
 // renderToString is a function that we can pass JSX to, take that and render it into actual html sting
     const reactApp = renderToString(
-        // in order for it to work, we have to set up routing on our server for the frontend
-        <StaticRouter location={req.url}>
-            <App />
-        </StaticRouter>    
+        sheet.collectStyles(
+                <StaticRouter location={req.url}>
+                    <App />
+                </StaticRouter> 
+        )
+        // in order for it to work, we have to set up routing on our server for the frontend   
     );
 
     const templateFile = path.resolve('./build/index.html');
@@ -32,7 +37,8 @@ app.get("/*", (req,res) => {
         //load the index.html file for the build folder and manually replace id=root with reactApp
         return res.send(
             data.replace('<div id="root"></div>',`<div id="root">${reactApp}</div>`)
-        )
+            .replace('{{styles}}',sheet.getStyleTags())
+            )
     });
 });
 
