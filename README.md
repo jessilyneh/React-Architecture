@@ -23,9 +23,16 @@ Render time and TTFB are critical because they determine how long it takes to di
 Returns a reference to the component after rendering a React element into the DOM in the provided container (or return null for stateless components)
 
 ### Hydrate()
-Is the same as render() but is use to hydrate a container whose HTML contents were rendered by ReactDOMServer. React will attempt ti attach event listeners to the existing markup.<br/>
+Is the same as render() but is use to hydrate a container whose HTML contents were rendered by ReactDOMServer. React will attempt to attach event listeners to the existing markup.<br/>
 React Hydratation is a technique used that is similiar to rendering, but instead of having an empty DOM to render all of our react components into, we have a DOM that has already been built, with all our components rendered as HTML.<br/>
 This improves SEO and decreases the initial load time.
+
+### Caveats
+When whe working with SSR, remember: when SSR is being rendered, the code that they're executing its not in the browser.<br/>
+When the app becomes very heavy (not by the content, but by functionalities), SSR may make your loading times even longer.<br/>
+
+### Isomorphic Archteture
+Isomorphic architecture is a strategy that allows running the same unique application both on the client and on the server.<br/>
 
 
 ### commands
@@ -37,3 +44,5 @@ npx babel-node server.js
 [A Deep Dive into Server-Side Rendering (SSR) in JavaScript](https://towardsdev.com/server-side-rendering-srr-in-javascript-a1b7298f0d04)<br/>
 [Improving Render Time and TTFB with server-rendered Angular](https://medium.com/shopstyle-engineering/improving-render-time-and-ttfb-in-with-server-rendered-angular-5fe8b87f4cd7)<br/>
 [Understanding Hydratation in React applications (SSR)](https://blog.saeloun.com/2021/12/16/hydration.html)<br/>
+[SERVER-SIDE RENDERING (SSR) VS CLIENT-SIDE RENDERING (CSR)](https://pagepro.co/blog/ssrvscsr/))<br/>
+
